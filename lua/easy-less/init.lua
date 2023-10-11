@@ -1,5 +1,9 @@
 -- author: askfiy
 -- date: 2023-10-11
+-- name: neovim-easy-less
+-- description: A simple Neovim plugin for compiling Less to CSS using the lessc command.
+-- repository: https://github.com/askfiy/neovim-easy-less
+-- license: MIT
 
 --[[
     This is a simple less compilation CSS tool
