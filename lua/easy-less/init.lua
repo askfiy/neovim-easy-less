@@ -39,7 +39,7 @@ function M.setup(conf)
 
     default_config = vim.tbl_extend("force", default_config, conf or {})
 
-    vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         pattern = { "*.less" },
         callback = function()
             local current_less_file = vim.fn.expand("%:t")
