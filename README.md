@@ -7,7 +7,7 @@
                                                                  __/ |
                                                                 |___/
 
-                           · tomatically generate CSS files when writing less ·
+                           · automatically generate CSS files when writing less ·
 
 ![](https://img.shields.io/badge/Perfect-neovim%20easy%20less-green) 
 
