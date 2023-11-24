@@ -14,6 +14,7 @@ local M = {}
 
 local default_config = {
     show_error_message = false,
+    generate_suffix = "css",
 }
 
 local command = "lessc"
@@ -48,7 +49,7 @@ function M.setup(conf)
         callback = function()
             local less_path = vim.fn.expand("%:p")
             local css_path = vim.fn.expand("%:p:h")
-            local css_file = ("%s.css"):format(vim.fn.expand("%:t:r"))
+            local css_file = ("%s.%s"):format(vim.fn.expand("%:t:r"), default_config.generate_suffix)
 
             vim.fn.jobstart({
                 command,
