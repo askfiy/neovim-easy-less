@@ -1,6 +1,6 @@
                   _   _       _                 ______                       _
                  | \ | |     (_)               |  ____|                     | |
-                 |  \| |_   ___ _ __ ___ ______| |__   __ _ ___ _   _ ______| |     ___  ___ ___ 
+                 |  \| |_   ___ _ __ ___ ______| |__   __ _ ___ _   _ ______| |     ___  ___ ___
                  | . ` \ \ / / | '_ ` _ \______|  __| / _` / __| | | |______| |    / _ \/ __/ __|
                  | |\  |\ V /| | | | | | |     | |___| (_| \__ \ |_| |      | |___|  __/\__ \__ \
                  |_| \_| \_/ |_|_| |_| |_|     |______\__,_|___/\__, |      |______\___||___/___/
@@ -9,7 +9,7 @@
 
                            · automatically generate CSS files when writing less ·
 
-![](https://img.shields.io/badge/Perfect-neovim%20easy%20less-green) 
+![](https://img.shields.io/badge/Perfect-neovim%20easy%20less-green)
 
 **Neovim Easy Less** is a simple Neovim plugin that facilitates the compilation of Less files to CSS using the `lessc` command. It streamlines the process of converting Less to CSS each time you save a Less file.
 

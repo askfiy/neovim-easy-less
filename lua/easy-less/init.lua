@@ -46,16 +46,19 @@ function M.setup(conf)
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         pattern = { "*.less" },
         callback = function()
-            local current_less_file = vim.fn.expand("%:t")
-            local target_css_file = ("%s.css"):format(vim.fn.expand("%:t:r"))
+            local less_path = vim.fn.expand("%:p")
+            local css_path = vim.fn.expand("%:p:h")
+            local css_file = ("%s.css"):format(vim.fn.expand("%:t:r"))
 
-            vim.fn.jobstart(
-                { command, current_less_file, target_css_file, "--no-color" },
-                {
-                    on_stdout = callback,
-                    on_stderr = callback,
-                }
-            )
+            vim.fn.jobstart({
+                command,
+                less_path,
+                table.concat(vim.tbl_flatten({ css_path, css_file }), "/"),
+                "--no-color",
+            }, {
+                on_stdout = callback,
+                on_stderr = callback,
+            })
         end,
     })
 end
