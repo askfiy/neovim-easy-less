@@ -49,7 +49,10 @@ function M.setup(conf)
         callback = function()
             local less_path = vim.fn.expand("%:p")
             local css_path = vim.fn.expand("%:p:h")
-            local css_file = ("%s.%s"):format(vim.fn.expand("%:t:r"), default_config.generate_suffix)
+            local css_file = ("%s.%s"):format(
+                vim.fn.expand("%:t:r"),
+                default_config.generate_suffix
+            )
 
             vim.fn.jobstart({
                 command,
@@ -62,6 +65,10 @@ function M.setup(conf)
             })
         end,
     })
+end
+
+function M.set_output(suffix)
+    default_config.generate_suffix = suffix
 end
 
 return M
