@@ -56,6 +56,14 @@ In addition to this, generate_suffix can be quickly modified via the following f
 require("easy-less").set_output("css")
 ```
 
+The plugin have the following commands:
+
+```lua
+EnableEasyLess
+DisableEasyLess
+ToggleEasyLess
+```
+
 ## License
 
 This plugin is licensed under the MIT License. See the [LICENSE](https://github.com/askfiy/neovim-easy-less/blob/master/LICENSE) file for details.

@@ -18,6 +18,7 @@ local default_config = {
 }
 
 local command = "lessc"
+local enable_tag = true
 
 local function callback(job_id, data, event)
     local msg = data[1]
@@ -47,6 +48,9 @@ function M.setup(conf)
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         pattern = { "*.less" },
         callback = function()
+            if not enable_tag then
+                return
+            end
             local less_path = vim.fn.expand("%:p")
             local css_path = vim.fn.expand("%:p:h")
             local css_file = ("%s.%s"):format(
@@ -64,7 +68,20 @@ function M.setup(conf)
                 on_stderr = callback,
             })
         end,
+        desc = "Auto generate file in BufWritePost event",
     })
+
+    vim.api.nvim_create_user_command("DisableEasyLess", function(ctx)
+        enable_tag = false
+    end, { desc = "Disable Easy Less auto generate file" })
+
+    vim.api.nvim_create_user_command("EnableEasyLess", function(ctx)
+        enable_tag = true
+    end, { desc = "Enable Easy Less auto generate file" })
+
+    vim.api.nvim_create_user_command("ToggleEasyLess", function(ctx)
+        enable_tag = not enable_tag
+    end, { desc = "Toggle Easy Less auto generate file" })
 end
 
 function M.set_output(suffix)
