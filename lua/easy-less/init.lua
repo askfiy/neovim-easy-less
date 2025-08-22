@@ -15,7 +15,7 @@ local M = {}
 local default_config = {
     show_error_message = false,
     generate_suffix = "css",
-    cmd_args = "",
+    cmd_args = {},
 }
 
 local command = "lessc"
@@ -58,13 +58,13 @@ function M.setup(conf)
                 vim.fn.expand("%:t:r"),
                 default_config.generate_suffix
             )
-
+            local unpack = table.unpack or unpack
             vim.fn.jobstart({
                 command,
                 less_path,
                 table.concat(vim.tbl_flatten({ css_path, css_file }), "/"),
                 "--no-color",
-                default_config.cmd_args,
+                unpack(default_config.cmd_args),
             }, {
                 on_stdout = callback,
                 on_stderr = callback,
